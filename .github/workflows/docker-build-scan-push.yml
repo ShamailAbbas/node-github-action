@@ -36,6 +36,8 @@ jobs:
         id: build-image
         run: |
           docker build -t ${{ env.DOCKER_HUB_REPOSITORY }}:${{ github.sha }} -t ${{ env.DOCKER_HUB_REPOSITORY }}:latest .
+          echo "showing build image"
+          docker ps -a
           echo "image-tag=${{ github.sha }}" >> $GITHUB_OUTPUT
 
       - name: Save Docker image as tar file
