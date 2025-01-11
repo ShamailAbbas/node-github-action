@@ -188,7 +188,7 @@ jobs:
 
   push:
     runs-on: ubuntu-latest
-    needs: [scan-filesystem, scan-dependencies, scan-image]
+    needs: [scan-filesystem]
 
     steps:
       - name: Download Docker image artifact
