@@ -208,6 +208,8 @@ jobs:
 
       - name: Push Docker image
         run: |
+          echo "listing downloaded image"
+          docker ps -a
           docker push ${{ env.DOCKER_HUB_REPOSITORY }}:latest
 
       - name: Send push status email
