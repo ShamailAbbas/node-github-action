@@ -208,8 +208,6 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag ${{ env.DOCKER_HUB_REPOSITORY }}:${{ needs.build.outputs.image-tag }} ${{ env.DOCKER_HUB_REPOSITORY }}:latest
-          docker push ${{ env.DOCKER_HUB_REPOSITORY }}:${{ needs.build.outputs.image-tag }}
           docker push ${{ env.DOCKER_HUB_REPOSITORY }}:latest
 
       - name: Send push status email
