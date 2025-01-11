@@ -61,7 +61,7 @@ jobs:
           body: |
             The build job has completed with status: ${{ job.status }}.
             Check the workflow run for details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          to: ${{ env.EMAIL_USERNAME }}
+          to: ${{ env.EMAIL_TO }}
           from: ${{ secrets.EMAIL_USERNAME }}
           content_type: text/plain
 
@@ -93,7 +93,7 @@ jobs:
           body: |
             The filesystem scan job has completed with status: ${{ job.status }}.
             Check the workflow run for details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          to: ${{ env.EMAIL_USERNAME }}
+          to: ${{ env.EMAIL_TO }}
           from: ${{ secrets.EMAIL_USERNAME }}
           content_type: text/plain
 
@@ -145,7 +145,7 @@ jobs:
           body: |
             The dependency scan job has completed with status: ${{ job.status }}.
             Check the workflow run for details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          to: ${{ env.EMAIL_USERNAME }}
+          to: ${{ env.EMAIL_TO }}
           from: ${{ secrets.EMAIL_USERNAME }}
           content_type: text/plain
 
@@ -182,7 +182,7 @@ jobs:
           body: |
             The image scan job has completed with status: ${{ job.status }}.
             Check the workflow run for details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          to: ${{ env.EMAIL_USERNAME }}
+          to: ${{ env.EMAIL_TO }}
           from: ${{ secrets.EMAIL_USERNAME }}
           content_type: text/plain
 
@@ -223,6 +223,6 @@ jobs:
           body: |
             The push job has completed with status: ${{ job.status }}.
             Check the workflow run for details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          to: ${{ env.EMAIL_USERNAME }}
+          to: ${{ env.EMAIL_TO }}
           from: ${{ secrets.EMAIL_USERNAME }}
           content_type: text/plain
