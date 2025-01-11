@@ -44,7 +44,7 @@ jobs:
 
       - name: Save Docker image as tar file
         run: |
-          docker save -o /tmp/docker-image.tar ${{ env.DOCKER_HUB_REPOSITORY }}:${{ github.sha }}
+          docker save -o /tmp/docker-image.tar ${{ env.DOCKER_HUB_REPOSITORY }}:${{ github.sha }} ${{ env.DOCKER_HUB_REPOSITORY }}:latest
 
       - name: Upload Docker image artifact
         uses: actions/upload-artifact@v3
@@ -214,7 +214,8 @@ jobs:
         run: |
           echo "listing downloaded image"
           docker images
-          docker push ${{ env.DOCKER_HUB_REPOSITORY }}:${{ github.sha }}
+          docker push ${{ env.DOCKER_HUB_REPOSITORY }}:${{ needs.build.outputs.image-tag }}
+          docker push ${{ env.DOCKER_HUB_REPOSITORY }}:latest
 
       - name: Send push status email
         if: always()
