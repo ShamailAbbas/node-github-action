@@ -35,9 +35,11 @@ jobs:
       - name: Build Docker image
         id: build-image
         run: |
+          echo "before build showing  image"
+          docker images
           docker build -t ${{ env.DOCKER_HUB_REPOSITORY }}:${{ github.sha }} -t ${{ env.DOCKER_HUB_REPOSITORY }}:latest .
-          echo "showing build image"
-          docker ps -a
+          echo "after  build showing  image"
+          docker images
           echo "image-tag=${{ github.sha }}" >> $GITHUB_OUTPUT
 
       - name: Save Docker image as tar file
@@ -211,7 +213,7 @@ jobs:
       - name: Push Docker image
         run: |
           echo "listing downloaded image"
-          docker ps -a
+          docker images
           docker push ${{ env.DOCKER_HUB_REPOSITORY }}:latest
 
       - name: Send push status email
