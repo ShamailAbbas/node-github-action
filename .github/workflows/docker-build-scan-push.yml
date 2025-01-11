@@ -214,7 +214,7 @@ jobs:
         run: |
           echo "listing downloaded image"
           docker images
-          docker push ${{ env.DOCKER_HUB_REPOSITORY }}:latest
+          docker push ${{ env.DOCKER_HUB_REPOSITORY }}:${{ github.sha }}
 
       - name: Send push status email
         if: always()
